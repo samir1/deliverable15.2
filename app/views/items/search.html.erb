@@ -1,0 +1,13 @@
+<%= form_tag("/items/search", method: "get") do %>
+  <h3>Search</h3>
+  <%= label_tag(:title, "title:") %>
+  <%= text_field_tag(:title) %>
+  <br />
+  <%= label_tag(:description, "Search description:") %>
+  <%= text_field_tag(:description) %>
+  <br />
+  <%= label_tag(:type, "Search type:") %>
+  <%= select_tag(:type, options_for_select([['book', 1], ['clothing', 2], ['cellphone', 3], ['computer', 4]])) %>
+  <br />
+  <%= submit_tag("Search") %>
+<% end %>
