@@ -62,6 +62,13 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @types = Type.all.map {|t| [t.title, t.id]}
+  end
+
+  def do_search
+    search_condition = "%" + params[:title] + "%"
+    @items = Item.find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
+    render :index
   end
 
   private
